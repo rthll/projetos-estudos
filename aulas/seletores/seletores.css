@@ -1,0 +1,32 @@
+* {
+    background: black;
+    color: white;
+}
+
+li {
+    color: aqua;
+}
+
+ul li{
+    color: brown;
+}
+
+ul>li.li-azul {
+    color: blue;
+}
+
+div a {
+    color: green;
+}
+
+#divisao { 
+    border: 5px solid white;
+}
+
+div>a {
+    color: yellow;
+}
+
+footer>p {
+    color: purple;
+}
