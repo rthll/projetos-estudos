@@ -1,0 +1,28 @@
+ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+ul a {
+    text-align: center;
+    display: block;
+    width: 99px;
+    height: 40px;
+    background: url(imagens/fundo-horizontal.png) no-repeat ;
+    line-height: 40px;
+    border-left: 1px solid rgba(0, 126, 84, 0.795)
+}
+
+li {
+    padding: 0px 0px 0px 0px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    background: orange;
+}
