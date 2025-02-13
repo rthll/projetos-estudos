@@ -1,0 +1,16 @@
+.container {
+    height: 500px;
+    justify-content: center; /* alinha os elementos filhos no centro horizontal*/
+    align-items: center; /* alinha os elementos filhos no centro vertical*/
+    /* align-items: stretch;  faz com que os elementos filhos cresçam pela vertical até o limite do elemento pai*/
+    display: flex;  /* transforma elementos filhos para disposição em linha */
+                    /* row -> linha da esquerda para direita */
+                    /* colunm -> coluna de cima para baixo  */
+    flex-wrap: wrap; /* faz a quebra de linha caso os elementos filhos não caibam no elemento pai*/
+    flex-flow: row nowrap;  /* é uma shorthand para flex-wrap e display onde você pode configurar as duas propriedades em uma só linha*/
+}
+
+.container div {
+    width: 100px;
+    background-color: orange;
+}
