@@ -8,12 +8,12 @@ let customers  = [
 
 class customersController {
 
-  async index(req, res) {
+  async show(req, res) {
     const data = await Customer.findAll();
     return res.json(data);
   }
 
-  show(req, res) {
+  index(req, res) {
     const id = parseInt(req.params.id);
     const customer = customers.find((item) => item.id === id);
     const status = customer ? 200 : 400;
