@@ -5,26 +5,45 @@ const database = new DatabaseMemory();
 
 const server = fastify();
 
-server.get('/', (req, res) => {
-    database.list();
+server.get('/', (req, reply) => {
+    return reply.status(200).send(database.list());
 })
 
 server.post('/videos', (request, reply) => {
+    const { title, description, duration } = request.body;
     database.create({
-        title: 'video 01',
-        description: 'Esse é o video 01',
-        duration: '31 sgundos'
+        title: title,
+        description: description,
+        duration: duration
     });
-
     return reply.status(200).send();
 })
 
-server.put('/videos/:id', (req, res) => {
-    return 'hello rocketseat';
+server.get('/videos', (req, reply) => {
+    return reply.status(200).send(database.list());
 })
 
-server.delete('/videos/:id', (req, res) => {
-    return 'hello rocketseat';
+server.put('/videos/:id', (req, reply) => {
+    const videoId = req.params.id;
+    const { title, description, duration } = req.body;
+
+    const video = {
+        title,
+        description,
+        duration
+    };
+
+    database.update(videoId, video);
+
+    return reply.status(204).send();
+})
+
+server.delete('/videos/:id', (req, reply) => {
+    const videoId = req.params.id;
+
+    database.delete(videoId);
+
+    return reply.status(204).send();
 })
 
 
