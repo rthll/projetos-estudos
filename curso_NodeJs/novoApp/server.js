@@ -9,6 +9,12 @@ server.get('/', (req, reply) => {
     return reply.status(200).send(database.list());
 })
 
+server.get('/videos/:title', (req, reply) => {
+    const title = req.params.title;
+
+    return reply.status(200).send(database.selectId(title));
+})
+
 server.post('/videos', (request, reply) => {
     const { title, description, duration } = request.body;
     database.create({

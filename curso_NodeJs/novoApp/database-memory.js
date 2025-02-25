@@ -29,4 +29,14 @@ export class DatabaseMemory {
     delete(id) {
         this.#videos.delete(id);
     }
+
+    selectId(title) {
+        for (const [id, video] of this.#videos.entries()) {
+            if (video.title === title) {
+                return { id, ...video };
+            }
+        }
+        return null; // Retorna `null` se não encontrar o vídeo
+    }
+    
 }
