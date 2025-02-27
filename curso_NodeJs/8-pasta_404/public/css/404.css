@@ -1,0 +1,13 @@
+body {
+    background: red;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 32;
+}
+h2 {
+     font-size: 28;
+}
