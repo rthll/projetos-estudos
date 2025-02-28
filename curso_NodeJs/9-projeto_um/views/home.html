@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados Enviados</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <h1>Dados Enviados</h1>
+    <p><strong>Nome:</strong> <span id="nome"></span></p>
+    <p><strong>Idade:</strong> <span id="idade"></span></p>
+
+    <script>
+        // Captura os parâmetros da URL
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("nome").textContent = params.get("nome") || "Não informado";
+        document.getElementById("idade").textContent = params.get("idade") || "Não informado";
+    </script>
+</body>
+</html>
