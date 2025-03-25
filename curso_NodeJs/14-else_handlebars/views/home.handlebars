@@ -1,4 +1,9 @@
 <h1>Olá, handlebars!</h1>
+{{#if approved}}
+    <p>parabéns, cadastro aprovado!</p>
+{{else }}
+    <p>Seu cadastro precisa de aprovação!</p>
+{{/if}}
 <p>O nome do usuário é {{ user.name }}</p>
 {{#if auth}}
     <p>

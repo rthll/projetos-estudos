@@ -7,15 +7,16 @@ const app = express()
 app.engine('handlebars', exphbs.engine({ defaultLayout: 'main'}))
 app.set('view engine', 'handlebars');
 
+const auth = true
+const approved = true
+
 app.get('/', (req, res) => {
     const user = {
         name: "Rythielly",
         surname: "Francisco"
     }
 
-    const auth = false
-
-    res.render('home', { user: user, auth })
+    res.render('home', { user: user, auth, approved })
 })
 
 app.get('/dashboard', (req, res) => {
