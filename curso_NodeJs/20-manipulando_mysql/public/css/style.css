@@ -1,9 +1,58 @@
-div {
+.div-form {
     display: flex;
     justify-content: center;
     text-align: center;
+    align-items: center;
+    border: 1px solid grey;
+    height: 300px;
+    width: 600px;
+}
+
+.div-form form {
+    width: 400px;
+}
+
+.books-page {
+    display: flex;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    text-align: center;
+}
+
+.books-container {
+    display: flex;
+    flex-direction: column; /* Garante que os livros sejam exibidos um abaixo do outro */
+    align-items: flex-start; /* Centraliza horizontalmente os itens */
+    border: 1px solid grey;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.form-control {
+    display: flex;
+    justify-content: left;
+    margin-top: 5px;
+}
+
+.form-control input {
+    width: 400px;
+
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+div .submit {
+    margin-top: 10px;
 }
 
 body {
     background: rgb(210, 255, 248);
+
 }
+
