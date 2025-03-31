@@ -20,6 +20,35 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
+app.post('/books/editbooks', (req, res) => {
+    const { title, pageqty, id } = req.body
+
+    const query = `UPDATE books SET title = ?, pageqty = ? WHERE id = ?`
+    conn.query(query, [title, pageqty, id], function(err){
+        if (err){
+            console.log(err)
+        }
+        
+    })
+
+    res.redirect('/books')
+})
+
+app.get('/books/edit/:id', (req, res) => {
+    const id = req.params.id
+
+    const query = `SELECT * FROM books WHERE id = ${id}`
+
+    conn.query(query, function(err, data) {
+        if (err){
+            console.log(err)
+        }
+        const book = data[0]
+
+        res.render('editbook', { book })
+    })
+})
+
 app.get('/books', (req,res) => {
     const query = `SELECT * FROM books`
     conn.query(query, function(err, data) {
@@ -52,18 +81,19 @@ app.get('/book/:id', (req,res) => {
 })
 
 app.post('/books/insertbook', (req, res) => {
-    const title = req.body.title
-    const pageqty = req.body.pageqty
+    const { title, pageqty } = req.body
 
+    const query = `INSERT INTO books (title, pageqty) VALUES (?, ?)`
     
-    const query = `INSERT INTO books (title, pageqty) VALUES ('${title}','${pageqty}')`
-    conn.query(query, function(err) {
-        if(err){
+    conn.query(query, [title, pageqty], function(err, result) {
+        if (err) {
             console.log(err)
+            return res.status(500).send('Erro ao inserir o livro.')
         }
         res.redirect('/books')
     })
 })
+
 
 const conn = mysql.createConnection({
     host: 'localhost',
